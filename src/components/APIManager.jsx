@@ -25,7 +25,7 @@ export const getBodyPartList = async () => {
 };
 
 export const getExerciseById = async (id) => {
-  console.log(id);
+  console.log(id,".....");
   const options = {
     method: "GET",
     url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`,

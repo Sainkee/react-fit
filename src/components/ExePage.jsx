@@ -6,7 +6,7 @@ import { getExerciseById } from "./APIManager";
 
 export default function ExePage() {
   const { ID } = useParams();
-  const [exercise, setExercise] = useState({});
+  const [exercise, setExercise] = useState();
 
   useEffect(() => {
     if (!exercise) {
