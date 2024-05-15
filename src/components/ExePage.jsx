@@ -13,6 +13,7 @@ export default function ExePage() {
       getExerciseById(ID)
         .then((data) => {
           setExercise(data);
+          console.log(data);
         })
         .catch((err) => {
           console.log(err);
@@ -26,38 +27,32 @@ export default function ExePage() {
 
   return (
     <>
-      <div className="container mx-auto bg-slate-300 px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">{exercise.name}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <img
-              src={exercise.gifUrl}
-              alt={exercise.name}
-              className="w-full h-auto mb-4 rounded-lg"
-            />
-            <div className="flex justify-between items-center">
-              <p>
-                <strong>Equipment:</strong> {exercise.equipment}
-              </p>
-              <p>
-                <strong>Body Part:</strong> {exercise.bodyPart}
-              </p>
-              <p>
-                <strong>Target:</strong> {exercise.target}
-              </p>
-            </div>
-          </div>
-          <div>
-            <p className="text-gray-700 mb-4">
-              {exercise.instructions.join("\n")}
-            </p>
-            <h3 className="font-semibold">Secondary Muscles:</h3>
-            <p className="text-gray-700 mb-4">
-              {exercise.secondaryMuscles.join(", ")}
-            </p>
-          </div>
+     <div className="mx-auto py-10 bg-gray-100">
+  <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-md">
+    <div className="flex flex-wrap items-center gap-10 justify-center">
+
+      <div className="rounded-md overflow-hidden ">
+      <h1 className="text-3xl text-center uppercase font-bold mb-4">{exercise.name}</h1>
+
+        <img src={exercise.gifUrl} alt={exercise.name} className="w-full h-auto" />
+        <div className="flex justify-center mt-4 space-x-2">
+          <span className="bg-gray-700 px-3 py-1 rounded text-xs text-white">{exercise.bodyPart}</span>
+          <span className="bg-gray-700 px-3 py-1 rounded text-xs text-white">{exercise.target}</span>
+          <span className="bg-gray-700 px-3 py-1 rounded text-xs text-white">{exercise.equipment}</span>
         </div>
       </div>
+      <div className="w-full sm:w-1/2 lg:w-1/3">
+       
+        <ol className="list-decimal list-inside">
+          {exercise.instructions.map((item, index) => (
+            <li key={index} className="mb-2 text-gray-700">{item}</li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
     </>
   );
 }
