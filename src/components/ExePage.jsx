@@ -26,7 +26,7 @@ export default function ExePage() {
 
   return (
     <>
-      <div className="container mx-auto bg-slate-300 py-8">
+      <div className="container mx-auto bg-slate-300 px-4 py-8">
         <h1 className="text-3xl font-bold mb-4">{exercise.name}</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -35,7 +35,7 @@ export default function ExePage() {
               alt={exercise.name}
               className="w-full h-auto mb-4 rounded-lg"
             />
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <p>
                 <strong>Equipment:</strong> {exercise.equipment}
               </p>
